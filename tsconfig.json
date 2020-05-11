@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
+        "baseUrl": "./src",
         "experimentalDecorators": true,
         "moduleResolution": "node",
+        "paths": {
+            "@/*": [
+                "*"
+            ]
+        },
         "target": "ES5"
     }
 }
