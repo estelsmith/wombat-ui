@@ -1,7 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-module.exports = {
+const config = {
     entry: './src/app.ts',
     mode: 'development',
     module: {
@@ -34,4 +34,15 @@ module.exports = {
         },
         extensions: ['.ts', '.js', '.vue']
     }
+};
+
+module.exports = function (env, argv) {
+    const mode = argv.mode || config.mode;
+    const isDev = mode === 'development';
+
+    if (isDev) {
+        config.devtool = 'inline-source-map';
+    }
+
+    return config;
 };
